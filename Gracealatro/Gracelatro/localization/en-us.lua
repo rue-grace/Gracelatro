@@ -100,9 +100,10 @@ return {
             j_grace_slugfish = {
                 name = "Slugfish",
                 text = {
-                    '{X:legendary,C:white}^4{} Mult, takes up 2 {C:attention}joker slots{} and',
-                    '{C:money}-5${} when effect is triggered',
-                    '{C:attention}currently doesnt work correctly.{}'
+                    "This joker Gains {C:green}1/5{}th of the",
+                    "{C:attention}Money{} you have to its {C:mult}Multiplier{},", 
+                    "{C:money}$#2#{} every time it triggers",
+                    "{C:inactive}(Currently{} {X:legendary,C:white}^#1#{} {C:inactive}){}"
                 }
             },
             j_grace_snap = {

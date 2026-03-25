@@ -230,7 +230,7 @@ SMODS.Joker{ --Slight
 
 SMODS.Joker{ --Slugfish {Currently doesnt work properly}
     key = "slugfish",
-    config = { extra = { hand_change = 1, emult = 4, dollars = 5 } },
+    config = { extra_slots_used = 1, extra = { emult = 1, dollars = 10 } },
     pos = { x = 0, y = 0 },
     cost = 4,
     rarity = 1,
@@ -243,23 +243,19 @@ SMODS.Joker{ --Slugfish {Currently doesnt work properly}
 
     
     calculate = function(self, card, context)
+        local varies = G.GAME.dollars / 5
         if context.cardarea == G.jokers and context.joker_main  then
+            ease_dollars((-card.ability.extra.dollars + -card.ability.extra.emult) / 2)
+            card.ability.extra.emult = card.ability.extra.emult + varies
             return {
                 e_mult = card.ability.extra.emult,
-                extra = {
-                dollars = -card.ability.extra.dollars,
-                colour = G.C.MONEY
             }
-        }
-    end
-end,
-
-    add_to_deck = function(self, card, from_debuff)
-        G.GAME.round_resets.hands = math.max(1, G.GAME.round_resets.hands - card.ability.extra.hand_change)
+        end
     end,
 
-    remove_from_deck = function(self, card, from_debuff)
-        G.GAME.round_resets.hands = G.GAME.round_resets.hands + card.ability.extra.hand_change
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.emult, -((card.ability.extra.dollars + card.ability.extra.emult) / 2) } }
+        
     end
 }
 
