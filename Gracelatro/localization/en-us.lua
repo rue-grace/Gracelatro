@@ -61,9 +61,7 @@ return {
             j_grace_doppel = {
                 name = "Doppel",
                 text = {
-                    "this joker gives",
-                    "{X:mult,C:white}^^2{} Mult",
-                    "{C:attention}broken af.{}"
+                    "dopleganger"
                 }
             },
             j_grace_szymon = {
@@ -142,7 +140,9 @@ return {
             j_grace_ire = {
                 name = "Ire",
                 text = {
-                    "anger"
+                    "When {C:attention}Small Blind{} or {C:attention}Big Blind{}",
+                    "is selected, give a {C:spectral}Wraith{} card",
+                    "and {C:attention}destroy{} a random Joker"
                 }
             },
             j_grace_dozer = {
@@ -157,6 +157,30 @@ return {
                     "{C:attention}Goog{}",
                     "{C:inactive}({}{C:chips}+#1#{} {X:mult,C:white}X#3#{} {C:mult}+#2#{} {C:money}+#4#{}{C:inactive}){}"
                 } 
+            },
+            j_grace_rue = {
+                name = "Rue",
+                text = {
+                    "T{C:attention}rue{}"
+                }
+            },
+            j_grace_tar = {
+                name = "Tar",
+                text = {
+                    "what in {C:attention}Tar{}nation?"
+                }
+            },
+            j_grace_fool = {
+                name = "Fool",
+                text = { 
+                    "fool" 
+                }
+            },
+            j_grace_craven = {
+                name = "Craven",
+                text = {
+                    "Craven"
+                }
             }
         }
     },

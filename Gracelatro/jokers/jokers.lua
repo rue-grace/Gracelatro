@@ -88,7 +88,7 @@ SMODS.Atlas({
 
 SMODS.Atlas({
     key = "ire",
-    path = "j.png",
+    path = "j_ire.png",
     px = 71,
     py = 95
 })
@@ -136,6 +136,13 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = "rue",
+    path = "j_rue.png",
+    px = 71,
+    py = 95
+})
+
+SMODS.Atlas({
     key = "doppel",
     path = "j_doppel.png",
     px = 71,
@@ -143,8 +150,29 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = "tar",
+    path = "j_tar.png",
+    px = 71,    
+    py = 95
+})
+
+SMODS.Atlas({
     key = "john_zen",
     path = "j_john_zen.png",
+    px = 71,
+    py = 95
+})
+
+SMODS.Atlas({
+    key = "craven",
+    path = "j_craven.png",
+    px = 71,
+    py = 95
+})
+
+SMODS.Atlas({
+    key = "fool",
+    path = "j_fool.png",
     px = 71,
     py = 95
 })
@@ -523,10 +551,13 @@ SMODS.Joker{ --Ire {Doesn't do anything}
                     G.E_MANAGER:add_event(Event({func = function()
                         first_joker_to_destroy:start_dissolve({G.C.RED}, nil, 1.6)
                         second_joker_to_destroy:start_dissolve({G.C.RED}, nil, 1.6)
+
+                        SMODS.add_card({
+                            key = 'c_wraith'
+                        })
                     return true end }))
                 end
             end
-            SMODS.create_card('Spectral',G.consumeables, nil, nil, nil, nil, nil, 'ireness')
         end
     end
 }
@@ -731,6 +762,30 @@ SMODS.Joker{ --Pihsrow
     end
 }
 
+SMODS.Joker{ --Tar
+    key = "tar",
+    config = {},
+    pos = { x = 0, y = 0 },
+    rarity = 4,
+    cost = 20,
+    blueprint_compat = true,
+    eternal_compat = true,
+    unlocked = true,
+    discovered = true,
+    effect = nil,
+    soul_pos = nil,
+    atlas = 'tar',
+
+    calculate = function(self, card, context)
+        if context.joker_main and context.cardarea == G.jokers then
+            return {
+                x_chips = 1250,
+                mult = -2
+            }
+        end
+    end
+}
+
 SMODS.Joker{ --Doppel
     key = "doppel",
     config = {},
@@ -748,11 +803,81 @@ SMODS.Joker{ --Doppel
     calculate = function(self, card, context)
         if context.joker_main and context.cardarea == G.jokers then
             return {
+                x_chips = 0.4,
                 eemult = 2
             }
         end
     end
 }
+
+SMODS.Joker{ --Rue
+    key = "rue",
+    config = {},
+    pos = { x = 0, y = 0 },
+    rarity = 4,
+    cost = 20,
+    blueprint_compat = true,
+    eternal_compat = true,
+    unlocked = true,
+    discovered = true,
+    effect = nil,
+    soul_pos = nil,
+    atlas = 'rue',
+
+    calculate = function(self, card, context)
+        if context.joker_main and context.cardarea == G.jokers then
+            return {
+                chips = -100,
+                x_mult = 68
+            }
+        end
+    end
+}
+
+
+SMODS.Joker{ --Craven {Doesn't do anything}
+    key = "craven",
+    config = {},
+    pos = { x = 0, y = 0 },
+    rarity = 2,
+    cost = 6,
+    blueprint_compat = true,
+    eternal_compat = true,
+    unlocked = true,
+    discovered = true,
+    effect = nil,
+    soul_pos = nil,
+    atlas = 'craven',
+
+    calculate = function(self, card, context)
+        if context.joker_main and context.cardarea == G.jokers then
+            return
+        end
+    end
+}
+
+
+SMODS.Joker{ --Fool {Doesn't do anything}
+    key = "fool",
+    config = {},
+    pos = { x = 0, y = 0 },
+    rarity = 2,
+    cost = 6,
+    blueprint_compat = true,
+    eternal_compat = true,
+    unlocked = true,
+    discovered = true,
+    effect = nil,
+    soul_pos = nil,
+    atlas = 'fool',
+
+    calculate = function(self, card, context)
+        if context.joker_main and context.cardarea == G.jokers then
+            return
+        end
+    end
+}
+
 
 SMODS.Joker{ --Zen (john)
     key = "john_zen",
